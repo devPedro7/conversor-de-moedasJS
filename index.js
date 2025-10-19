@@ -3,11 +3,12 @@ const PRICEDOLLAR = 5.41;
 const PRICEEURO = 6.29;
 const PRICELIBRA = 7.23;
 
-//MAPEANDO O INPUT E DO SELECT E FORMULARIO E FOOTER
+//MAPEANDO O INPUT E DO SELECT E FORMULARIO E FOOTER E RESULTADO
 let form = document.querySelector("form");
 let amount = document.getElementById("amount");
 let currency = document.getElementById("currency");
 let footer = document.querySelector("main footer")
+let descitption = document.getElementById("description")
 
 //OBTENDO O VALOR DIGITADO NO INPUT
 amount.addEventListener("input", () => {
@@ -49,6 +50,8 @@ function convertCurrency(valorTotal, precoMoeda, simboloMoeda) {
   //console.log(valorTotal, precoMoeda, simboloMoeda);
 
   try {
+
+    descitption.textContent = `${simboloMoeda} 1 = R$ ${precoMoeda}`
     
     //APLICANDO CLASSE QUE EXIBE O FOOTER PARA MOSTRAR O RESULTADO
     footer.classList.add('show-result')
