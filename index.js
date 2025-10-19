@@ -51,7 +51,7 @@ function convertCurrency(valorTotal, precoMoeda, simboloMoeda) {
 
   try {
 
-    descitption.textContent = `${simboloMoeda} 1 = R$ ${precoMoeda}`
+    descitption.textContent = `${simboloMoeda} 1 = ${formatCurrencyBRL(precoMoeda)}`
     
     //APLICANDO CLASSE QUE EXIBE O FOOTER PARA MOSTRAR O RESULTADO
     footer.classList.add('show-result')
@@ -66,7 +66,12 @@ function convertCurrency(valorTotal, precoMoeda, simboloMoeda) {
   }
 }
 
-
-
+//FORMATA A MOEDA EM REAL BRASILEIRO
+function formatCurrencyBRL(value){
+  return Number(value).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  })
+}
 
 
