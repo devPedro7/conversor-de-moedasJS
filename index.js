@@ -3,10 +3,11 @@ const PRICEDOLLAR = 5.41;
 const PRICEEURO = 6.29;
 const PRICELIBRA = 7.23;
 
-//MAPEANDO O INPUT E DO SELECT E FORMULARIO
+//MAPEANDO O INPUT E DO SELECT E FORMULARIO E FOOTER
 let form = document.querySelector("form");
 let amount = document.getElementById("amount");
 let currency = document.getElementById("currency");
+let footer = document.querySelector("main footer")
 
 //OBTENDO O VALOR DIGITADO NO INPUT
 amount.addEventListener("input", () => {
@@ -45,7 +46,24 @@ form.onsubmit = (event) => {
 //FUNÇÃO PARA CONVERTER A MOEDA
 function convertCurrency(valorTotal, precoMoeda, simboloMoeda) {
 
-  console.log(valorTotal, precoMoeda, simboloMoeda);
+  //console.log(valorTotal, precoMoeda, simboloMoeda);
+
+  try {
+    
+    //APLICANDO CLASSE QUE EXIBE O FOOTER PARA MOSTRAR O RESULTADO
+    footer.classList.add('show-result')
+
+
+  } catch (error) {
+
+    //caso der erro no footer, remover
+    footer.classList.remove()
+    console.log(error);
+    alert("Não foi possível converter a moeda: " + error)
+  }
 }
+
+
+
 
 
