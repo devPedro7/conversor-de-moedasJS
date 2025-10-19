@@ -9,6 +9,7 @@ let amount = document.getElementById("amount");
 let currency = document.getElementById("currency");
 let footer = document.querySelector("main footer")
 let descitption = document.getElementById("description")
+let result = document.getElementById("result")
 
 //OBTENDO O VALOR DIGITADO NO INPUT
 amount.addEventListener("input", () => {
@@ -52,6 +53,13 @@ function convertCurrency(valorTotal, precoMoeda, simboloMoeda) {
   try {
 
     descitption.textContent = `${simboloMoeda} 1 = ${formatCurrencyBRL(precoMoeda)}`
+
+    //CALCULO DO TOTAL
+    let total = valorTotal * precoMoeda
+    total = formatCurrencyBRL(total).replace("R$", "")
+
+    //MODIFICANDO O RESULTADO PARA SER DINAMICO
+    result.textContent = `${total} Reais`
     
     //APLICANDO CLASSE QUE EXIBE O FOOTER PARA MOSTRAR O RESULTADO
     footer.classList.add('show-result')
